@@ -1,0 +1,109 @@
+%!TEX program = xelatex
+\documentclass[
+	lang=cn,
+	color=green
+]{elegantbook}
+\usepackage{tabularx,booktabs} 
+\usepackage{graphicx}
+\usepackage{listing}
+\usepackage{pdfcomment,bookmark}
+\usepackage{tikz}
+
+\title{xxxxxxxxxx}
+\date{yyyy年mm月dd日}
+\makeatletter
+\renewcommand{\maketitle}{
+	\begin{center}
+		\LARGE
+		\textbf{\@title} \par
+		\normalsize
+		\vspace{0.5cm}
+		\@date
+	\end{center}
+}
+
+% copy from https://tex.stackexchange.com/questions/271062/labeling-a-text-and-referencing-it-later
+\newcommand{\labeltext}[2]{
+  \@bsphack
+  \csname phantomsection\endcsname
+  \def\@currentlabel{#1}{\label{#2}}
+  \@esphack
+}
+\makeatother
+
+\newcolumntype{M}{>{\centering\arraybackslash}X}
+
+\newcommand{\problemtab}[2]{
+	\begin{tabularx}{#2}{M|M|M|M|M|M}
+		\toprule
+		\textbf{题目编号} & \textbf{题目名称} & \textbf{运行时间上限} & \textbf{运行内存上限} & \textbf{题目类型} & \textbf{命题人} \\
+		\midrule
+	\end{tabularx}
+
+	\foreach \i in #1{
+		\begin{tabularx}{#2}{M|M|M|M|M|M}
+			\i & \ref*{pro:\i} & \ref*{tim:\i} & \ref*{mem:\i} & \ref*{typ:\i} & \ref*{aut:\i} \\
+		\end{tabularx}
+
+	}
+
+	\begin{tabularx}{#2}{M|M|M|M|M|M}
+		\toprule
+	\end{tabularx}
+}
+
+\newcommand{\addproblem}[6]{
+	\labeltext{#2}{pro:#1}
+	\labeltext{#3ms}{tim:#1}
+	\labeltext{#4M}{mem:#1}
+	\labeltext{#5}{typ:#1}
+	\labeltext{#6}{aut:#1}
+}
+
+\newcommand{\problemheader}[1]{
+	\chapter*{#1.\quad \ref*{pro:#1}}
+	\addcontentsline{toc}{chapter}{A.\ref*{pro:#1}}
+	\begin{center}
+		运行时间上限：\ref*{tim:#1} \quad 运行内存上限：\ref*{mem:#1} \quad 题目类型：\ref*{typ:#1} \quad 命题人：\ref*{aut:#1}
+	\end{center}
+}
+
+\newcommand{\problembody}[4]{
+	\section*{题目描述}
+	#1
+	\section*{输入格式}
+	#2
+	\section*{输出格式}
+	#3
+	\section*{输入输出样例}
+	#4
+}
+
+\newcommand{\makeproblem}[5]{
+	\problemheader{#1}
+	\problembody{#2}{#3}{#4}{#5}
+}
+
+\begin{document}
+% 题目信息
+\addproblem{A}{A+B Problem}{1000}{256}{传统}{xxx}
+
+\begin{titlepage}
+    \maketitle
+    \section*{比赛信息}
+    \begin{tabularx}{450pt}{M|M|M|M}
+        \toprule
+        \textbf{赛制}       & \textbf{语言}       & \textbf{时长} & \textbf{题目数量} \\
+        \midrule
+        ACM\ |个人赛|不封榜 & C/C++，Python，Java & 1小时         & 1                \\
+        \bottomrule
+    \end{tabularx}
+    \section*{题目概况}
+    \problemtab{{A}}{450pt}
+    \section*{编译命令}
+    \section*{注意事项}
+\end{titlepage}
+
+\makeproblem{A}{}{}{}{}
+
+\end{document}
