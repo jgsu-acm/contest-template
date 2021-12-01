@@ -63,7 +63,7 @@
 \newcommand{\solutiontab}
 {
 	\begin{center}
-		\begin{tabularx}{\textwidth}{M|M|M|M}
+		\begin{tabularx}{\textwidth}{MMMM}
 			\toprule
 			\textbf{题目编号} & \textbf{题目名称} & \textbf{命题人} & \textbf{做法} \\
 			\midrule
@@ -73,7 +73,7 @@
 		\setcounter{i}{1}
 		\whiledo{\value{i}<\numexpr\value{solamo}+1\relax}
 		{
-			\begin{tabularx}{\textwidth}{M|M|M|M}
+			\begin{tabularx}{\textwidth}{MMMM}
 				\Alph{i} & \ref*{pro:\thei} & \ref*{aut:\thei} & \ref*{ans:\thei} \\
 				\ifnum \value{i}=\value{solamo}
 					\bottomrule

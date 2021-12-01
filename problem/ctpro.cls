@@ -60,7 +60,7 @@
 \newcommand{\ctinfotab}[3]
 {
 	\begin{center}
-		\begin{tabularx}{\textwidth}{M|M|M|M}
+		\begin{tabularx}{\textwidth}{MMMM}
 			\toprule
 			\textbf{赛制} & \textbf{语言} & \textbf{时长} & \textbf{题目数量} \\
 			\midrule
@@ -73,7 +73,7 @@
 \newcommand{\problemtab}
 {
 	\begin{center}
-		\begin{tabularx}{\textwidth}{M|M|M|M|M|M}
+		\begin{tabularx}{\textwidth}{MMMMMM}
 			\toprule
 			\textbf{题目编号} & \textbf{题目名称} & \textbf{运行时间上限} & \textbf{运行内存上限} & \textbf{题目类型} & \textbf{命题人} \\
 			\midrule
@@ -83,7 +83,7 @@
 		\setcounter{i}{1}
 		\whiledo{\value{i}<\numexpr\value{proamo}+1\relax}
 		{
-			\begin{tabularx}{\textwidth}{M|M|M|M|M|M}
+			\begin{tabularx}{\textwidth}{MMMMMM}
 				\Alph{i} & \ref*{pro:\thei} & \ref*{tim:\thei} & \ref*{mem:\thei} & \ref*{typ:\thei} & \ref*{aut:\thei} \\
 				\ifnum \value{i}=\value{proamo}
 					\bottomrule
