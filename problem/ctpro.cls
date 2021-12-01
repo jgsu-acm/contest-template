@@ -93,3 +93,18 @@
 		}
 	\end{center}
 }
+
+\newcounter{casecnt}[chapter]
+\newcommand{\testcasetab}[2]
+{
+	\stepcounter{casecnt}
+	\begin{center}
+		\begin{tabularx}{\textwidth}{X|X}
+			\toprule
+			输入样例\thecasecnt & 输出样例\thecasecnt \\
+			\midrule
+			#1 & #2 \\
+			\bottomrule
+		\end{tabularx}
+	\end{center}
+}
