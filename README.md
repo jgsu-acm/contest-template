@@ -1,2 +1,1 @@
-# jgsu-acmlab-contesttemplate
-比赛模板
+# A contest
