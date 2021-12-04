@@ -7,8 +7,8 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - run: |
-          wget https://github.com/ElegantLaTeX/ElegantBook/archive/refs/tags/v4.1.zip
-          unzip v4.1.zip
+          wget https://github.com/ElegantLaTeX/ElegantBook/archive/refs/tags/v4.1.zip -o elegantbook.zip
+          unzip elegantbook.zip
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
@@ -17,4 +17,4 @@ jobs:
             solution/solution.tex
           latexmk_use_xelatex: true
         env:
-          TEXINPUTS: ".:./problem:./solution:./v4.1"
+          TEXINPUTS: ".:./problem:./solution:./elegantbook//"
