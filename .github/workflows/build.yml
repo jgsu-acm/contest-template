@@ -7,16 +7,10 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - run: wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
-      - name: CLRF to RF
-        run: |
-          sudo apt install -qq dos2unix
-          dos2unix elegantbook.cls
-          dos2unix problem/problem.tex
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
-        env:
-          TEXINPUTS: ".:./problem"
         with:
           latexmk_use_xelatex: true
+          working-directory: problem
           root_file: |
             problem/problem.tex
