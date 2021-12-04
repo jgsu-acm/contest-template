@@ -11,6 +11,6 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           latexmk_use_xelatex: true
-          working-directory: problem
+          working_directory: problem
           root_file: |
             problem/problem.tex
