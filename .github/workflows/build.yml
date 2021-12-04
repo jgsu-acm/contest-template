@@ -6,7 +6,6 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
-      - run: wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
       - name: Build problem.tex
         uses: xu-cheng/latex-action@v2
         with:
