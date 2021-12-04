@@ -7,9 +7,21 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v2
       - run: wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
-      - name: Compile LaTeX document
+      - name: Build problem.tex
         uses: xu-cheng/latex-action@v2
         with:
           latexmk_use_xelatex: true
           working_directory: problem
           root_file: problem.tex
+      - name: Build solution.tex
+        uses: xu-cheng/latex-action@v2
+        with:
+          latexmk_use_xelatex: true
+          working_directory: solution
+          root_file: solution.tex
+      - name: Upload to release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            problem/problem.pdf
+            solution/solution.pdf
