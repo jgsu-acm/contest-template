@@ -4,34 +4,20 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Git repository
-        uses: actions/checkout@v2
-      - name: Xelatex
-        uses: xu-cheng/latex-action@v2
+      - uses: actions/checkout@v2
+      - uses: xu-cheng/texlive-action/small@v1
         with:
-          root_file: |
-            problem/problem.tex
-            solution/solution.tex
-          latexmk_use_xelatex: true
-          latexmk_shell_escape: true
-        env:
-          TEXINPUTS: "./problem:./solution"
-      - name: Xelatex
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: |
-            problem/problem.tex
-            solution/solution.tex
-          latexmk_use_xelatex: true
-          latexmk_shell_escape: true
-      - name: Xelatex
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: |
-            problem/problem.tex
-            solution/solution.tex
-          latexmk_use_xelatex: true
-          latexmk_shell_escape: true
+          run: |
+            apk add make
+            make
+      - name: Install packages
+        run: tlmgr install elegantbook
+      - name: Build PDF
+        run: |
+          latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error problem/problem.tex
+          latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error solution/solution.tex
+#         env:
+#           TEXINPUTS: "./problem:./solution"
       - name: Upload to release
         uses: softprops/action-gh-release@v0.1.14
         with:
