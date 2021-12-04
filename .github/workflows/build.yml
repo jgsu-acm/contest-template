@@ -4,18 +4,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: xu-cheng/texlive-action/small@v1
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - run: |
+          wget https://github.com/ElegantLaTeX/ElegantBook/archive/refs/tags/v4.1.zip
+          unzip v4.1.zip
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-          run: |
-            wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
-            latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error problem/problem.tex
-            latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error solution/solution.tex
-        env:
-          TEXINPUTS: ".:./problem:./solution"
-      - name: Upload to release
-        uses: softprops/action-gh-release@v0.1.14
-        with:
-          files: |
+          root_file: |
             problem/problem.tex
             solution/solution.tex
+          latexmk_use_xelatex: true
+        env:
+          TEXINPUTS: ".:./problem:./solution:./v4.1"
