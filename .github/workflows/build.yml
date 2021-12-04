@@ -9,10 +9,9 @@ jobs:
       - run: wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
+        env:
+          TEXINPUTS: ".:./problem"
         with:
+          latexmk_use_xelatex: true
           root_file: |
             problem/problem.tex
-            solution/solution.tex
-          latexmk_use_xelatex: true
-        env:
-          TEXINPUTS: ".:./problem:./solution:./elegantbook//"
