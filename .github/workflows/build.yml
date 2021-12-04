@@ -9,6 +9,7 @@ jobs:
         with:
           run: |
             tlmgr install elegantbook
+            texhash
             latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error problem/problem.tex
             latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error solution/solution.tex
         env:
