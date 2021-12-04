@@ -17,24 +17,24 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            problem/problem.tex
-            solution/solution.tex
+            ./problem/problem.tex
+            ./solution/solution.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
       - name: Xelatex
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            problem/problem.tex
-            solution/solution.tex
+            ./problem/problem.tex
+            ./solution/solution.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
       - name: Xelatex
         uses: xu-cheng/latex-action@v2
         with:
           root_file: |
-            problem/problem.tex
-            solution/solution.tex
+            ./problem/problem.tex
+            ./solution/solution.tex
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
       - name: Upload to release
