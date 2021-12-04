@@ -9,7 +9,7 @@ jobs:
       - run: wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
       - name: CLRF to RF
         run: |
-          apt install dos2unix
+          sudo apt install -qq dos2unix
           dos2unix elegantbook.cls
           dos2unix problem/problem.tex
       - name: Compile LaTeX document
