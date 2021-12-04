@@ -19,9 +19,13 @@ jobs:
           latexmk_use_xelatex: true
           working_directory: solution
           root_file: solution.tex
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d%H%M%S')"
       - name: Upload to release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             problem/problem.pdf
             solution/solution.pdf
+          tag_name: ${{ steps.date.outputs.date }}
