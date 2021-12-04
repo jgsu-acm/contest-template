@@ -12,5 +12,4 @@ jobs:
         with:
           latexmk_use_xelatex: true
           working_directory: problem
-          root_file: |
-            problem/problem.tex
+          root_file: problem.tex
