@@ -8,12 +8,11 @@ jobs:
       - uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            tlmgr install elegantbook
-            texhash
+            wget https://github.com/ElegantLaTeX/ElegantBook/blob/dev/elegantbook.cls
             latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error problem/problem.tex
             latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error solution/solution.tex
         env:
-          TEXINPUTS: "./problem:./solution"
+          TEXINPUTS: ".:./problem:./solution"
       - name: Upload to release
         uses: softprops/action-gh-release@v0.1.14
         with:
