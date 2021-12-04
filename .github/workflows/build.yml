@@ -8,16 +8,9 @@ jobs:
       - uses: xu-cheng/texlive-action/small@v1
         with:
           run: |
-            apk add make
-            make
-      - name: Install packages
-        run: tlmgr install elegantbook
-      - name: Build PDF
-        run: |
-          latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error problem/problem.tex
-          latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error solution/solution.tex
-#         env:
-#           TEXINPUTS: "./problem:./solution"
+            tlmgr install elegantbook
+            latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error problem/problem.tex
+            latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error solution/solution.tex
       - name: Upload to release
         uses: softprops/action-gh-release@v0.1.14
         with:
