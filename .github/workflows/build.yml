@@ -18,10 +18,13 @@ jobs:
           root_file: solution.tex
           working_directory: solution
           latexmk_use_xelatex: true
-      - name: Upload to release
-        uses: softprops/action-gh-release@v1
+      
+      - name: Release Package
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: latest
+          prerelease: true
           files: |
             problem/problem.pdf
             solution/solution.pdf
-          tag_name: latest
