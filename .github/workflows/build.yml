@@ -12,6 +12,7 @@ jobs:
           root_file: problem.tex
           working_directory: problem
           latexmk_use_xelatex: true
+          latexmk_shell_escape: true
       - name: Build solution.tex
         uses: xu-cheng/latex-action@v2
         with:
