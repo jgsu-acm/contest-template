@@ -4,7 +4,7 @@
 \LoadClass[lang=cn,color=blue]{elegantbook}
 
 \RequirePackage{tabularx,booktabs} 
-\RequirePackage{listings}
+\RequirePackage{minted}
 
 \makeatletter
 \renewcommand{\maketitle}
@@ -83,3 +83,6 @@
 		}
 	\end{center}
 }
+
+\newcounter{stdcnt}
+\newcommand{\std}[1]{\inputminted{cpp}{../std/#1.cpp}}
