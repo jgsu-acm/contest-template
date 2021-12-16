@@ -6,6 +6,7 @@
             "args": [
                 "-xelatex",
                 "-synctex=1",
+                "-shell-escape",
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "-outdir=%OUTDIR%",
