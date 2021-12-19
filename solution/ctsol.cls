@@ -31,7 +31,8 @@
 \makeatother
 
 \newcounter{solamo}
-\newcommand{\addsolution}[3]{
+\newcommand{\addsolution}[3]
+{
     \stepcounter{solamo}
 	\labeltext{#1}{pro:\thesolamo}
 	\labeltext{#2}{aut:\thesolamo}

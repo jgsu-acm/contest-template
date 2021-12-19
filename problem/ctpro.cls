@@ -5,8 +5,8 @@
 
 \RequirePackage{ifthen}
 
-\renewcommand{\thechapter}{\Alph{chapter}}
-\renewcommand{\chaptername}{\thechapter.}
+\renewcommand{\thechapter}{\Alph{chapter}.}
+\renewcommand{\chaptername}{\thechapter}
 
 \makeatletter
 \renewcommand{\maketitle}
