@@ -3,8 +3,8 @@
 
 \LoadClass[lang=cn,color=blue]{elegantbook}
 
-\RequirePackage{tabularx,booktabs} 
-\RequirePackage{minted}
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand{\chaptername}{\thechapter.}
 
 \makeatletter
 \renewcommand{\maketitle}
@@ -38,9 +38,6 @@
 	\labeltext{#3}{ans:\thesolamo}
 }
 
-\renewcommand{\thechapter}{\Alph{chapter}}
-\renewcommand{\chaptername}{\thechapter.}
-
 \newcounter{solcnt}
 \newcommand{\makesolution}
 {
@@ -48,18 +45,8 @@
 	\chapter{\ref*{pro:\thesolcnt}}
 }
 
-\lstset{
-    language=C++,
-    basicstyle=\ttfamily,
-    keywordstyle=\color{blue}\ttfamily,
-    stringstyle=\color{brown}\ttfamily,
-    commentstyle=\color{teal}\ttfamily,
-    morecomment=[l][\color{brown}]{\#},
-    showstringspaces=false
-}
-
+\RequirePackage{tabularx,booktabs} 
 \newcolumntype{M}{>{\centering\arraybackslash}X}
-
 \newcommand{\solutiontab}
 {
 	\begin{center}
@@ -84,5 +71,7 @@
 	\end{center}
 }
 
+\RequirePackage{minted}
+\usemintedstyle{xcode}
 \newcounter{stdcnt}
 \newcommand{\std}[1]{\inputminted{cpp}{../std/#1.cpp}}
