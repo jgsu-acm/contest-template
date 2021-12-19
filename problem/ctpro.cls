@@ -3,9 +3,10 @@
 
 \LoadClass[lang=cn,color=green]{elegantbook}
 
-\RequirePackage{tabularx,booktabs} 
-\RequirePackage{listings}
 \RequirePackage{ifthen}
+
+\renewcommand{\thechapter}{\Alph{chapter}}
+\renewcommand{\chaptername}{\thechapter.}
 
 \makeatletter
 \renewcommand{\maketitle}
@@ -42,9 +43,6 @@
 	\labeltext{#5}{aut:\theproamo}
 }
 
-\renewcommand{\thechapter}{\Alph{chapter}}
-\renewcommand{\chaptername}{\thechapter.}
-
 \newcounter{procnt}
 \newcommand{\makeproblem}
 {
@@ -55,6 +53,7 @@
 	\end{center}
 }
 
+\RequirePackage{tabularx,booktabs}
 \newcolumntype{Z}{>{\centering\arraybackslash}X}
 \newcolumntype{I}{>{\hsize=0.7\hsize\linewidth=\hsize}Z}
 \newcolumntype{N}{>{\hsize=1.8\hsize\linewidth=\hsize}Z}

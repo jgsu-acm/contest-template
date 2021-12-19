@@ -47,6 +47,7 @@
 
 \RequirePackage{tabularx,booktabs} 
 \newcolumntype{M}{>{\centering\arraybackslash}X}
+
 \newcommand{\solutiontab}
 {
 	\begin{center}
@@ -73,5 +74,6 @@
 
 \RequirePackage{minted}
 \usemintedstyle{xcode}
+
 \newcounter{stdcnt}
 \newcommand{\std}[1]{\inputminted{cpp}{../std/#1.cpp}}
