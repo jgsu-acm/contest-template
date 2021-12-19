@@ -113,3 +113,5 @@
 		\end{tabularx}
 	\end{center}
 }
+
+\RequirePackage{shortvrb}

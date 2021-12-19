@@ -78,3 +78,5 @@
 
 \newcounter{stdcnt}
 \newcommand{\std}[1]{\inputminted{cpp}{../std/#1.cpp}}
+
+\RequirePackage{shortvrb}
