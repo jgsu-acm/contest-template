@@ -55,7 +55,13 @@
 	\end{center}
 }
 
-\newcolumntype{M}{>{\centering\arraybackslash}X}
+\newcolumntype{Z}{>{\centering\arraybackslash}X}
+\newcolumntype{I}{>{\hsize=0.7\hsize\linewidth=\hsize}Z}
+\newcolumntype{N}{>{\hsize=1.8\hsize\linewidth=\hsize}Z}
+\newcolumntype{T}{>{\hsize=0.9\hsize\linewidth=\hsize}Z}
+\newcolumntype{M}{>{\hsize=0.9\hsize\linewidth=\hsize}Z}
+\newcolumntype{P}{>{\hsize=0.8\hsize\linewidth=\hsize}Z}
+\newcolumntype{A}{>{\hsize=0.9\hsize\linewidth=\hsize}Z}
 
 \newcommand{\ctinfotab}[3]
 {
@@ -73,7 +79,7 @@
 \newcommand{\problemtab}
 {
 	\begin{center}
-		\begin{tabularx}{\textwidth}{MMMMMM}
+		\begin{tabularx}{\textwidth}{INTMPA}
 			\toprule
 			\textbf{题目编号} & \textbf{题目名称} & \textbf{运行时间上限} & \textbf{运行内存上限} & \textbf{题目类型} & \textbf{命题人} \\
 			\midrule
@@ -83,7 +89,7 @@
 		\setcounter{i}{1}
 		\whiledo{\value{i}<\numexpr\value{proamo}+1\relax}
 		{
-			\begin{tabularx}{\textwidth}{MMMMMM}
+			\begin{tabularx}{\textwidth}{INTMPA}
 				\Alph{i} & \ref*{pro:\thei} & \ref*{tim:\thei} & \ref*{mem:\thei} & \ref*{typ:\thei} & \ref*{aut:\thei} \\
 				\ifnum \value{i}=\value{proamo}
 					\bottomrule
