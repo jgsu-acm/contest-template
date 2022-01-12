@@ -3,8 +3,6 @@
 
 \LoadClass[lang=cn,color=green]{elegantbook}
 
-\RequirePackage{ifthen}
-
 \renewcommand{\thechapter}{\Alph{chapter}.}
 \renewcommand{\chaptername}{\thechapter}
 
