@@ -3,6 +3,9 @@
 
 \LoadClass[lang=cn,color=green]{elegantbook}
 
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+
 \renewcommand{\thechapter}{\Alph{chapter}.}
 \renewcommand{\chaptername}{\thechapter}
 
@@ -51,7 +54,6 @@
 	\end{center}
 }
 
-\RequirePackage{tabularx,booktabs}
 \newcolumntype{Z}{>{\centering\arraybackslash}X}
 \newcolumntype{I}{>{\hsize=0.7\hsize\linewidth=\hsize}Z}
 \newcolumntype{N}{>{\hsize=1.8\hsize\linewidth=\hsize}Z}
@@ -112,4 +114,4 @@
 	\end{center}
 }
 
-\RequirePackage{shortvrb}
+\RequirePackage{sourcecodepro}

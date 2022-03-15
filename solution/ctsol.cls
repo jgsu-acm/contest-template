@@ -74,9 +74,9 @@
 }
 
 \RequirePackage{minted}
+\RequirePackage{sourcecodepro}
 \usemintedstyle{xcode}
+\setminted{}
 
 \newcounter{stdcnt}
 \newcommand{\std}[1]{\inputminted{cpp}{../std/#1.cpp}}
-
-\RequirePackage{shortvrb}
