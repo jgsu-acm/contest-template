@@ -73,10 +73,15 @@
 	\end{center}
 }
 
-\RequirePackage{minted}
 \RequirePackage{sourcecodepro}
-\usemintedstyle{xcode}
-\setminted{}
-
 \newcounter{stdcnt}
-\newcommand{\std}[1]{\inputminted{cpp}{../std/#1.cpp}}
+\newcommand{\std}[1]{
+	\lstinputlisting[
+		language=c++,
+		frame=none,
+		numbers=left,
+		breaklines=true,
+		xleftmargin=.25in,
+		xrightmargin=.25in
+	]{../std/#1.cpp}
+}
