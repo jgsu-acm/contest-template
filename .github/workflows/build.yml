@@ -13,7 +13,6 @@ jobs:
           root_file: problem.tex
           working_directory: problem
           latexmk_use_xelatex: true
-          latexmk_shell_escape: true
 
       - name: Build solution.tex
         uses: xu-cheng/latex-action@v2
@@ -21,7 +20,6 @@ jobs:
           root_file: solution.tex
           working_directory: solution
           latexmk_use_xelatex: true
-          latexmk_shell_escape: true
 
       - name: Release Package
         uses: marvinpinto/action-automatic-releases@latest
