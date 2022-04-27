@@ -108,7 +108,7 @@
             \toprule
             输入样例\thecasecnt & 输出样例\thecasecnt \\
             \midrule
-            #1 & #2 \\
+            \ttfamily #1 & \ttfamily #2 \\
             \bottomrule
         \end{tabularx}
     \end{center}
