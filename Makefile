@@ -3,7 +3,7 @@ mk = latexmk -cd -xelatex
 ifeq ($(OS), Windows_NT)
     rm = del
 else
-    rm = rm
+    rm = rm -f
 endif
 
 .PHONY: problem solution clean
